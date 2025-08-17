@@ -22,12 +22,10 @@
         <section class="exercises">
             <h2>Ejercicios Resueltos</h2>
             <article>
-                <h3>Ejercicio 10: Suma de arrays</h3>
-                <p><strong>Problema:</strong> Dado dos arrays de igual longitud, devuelve un array con la suma de sus elementos en cada posición.</p>
+                <h3>Ejercicio 1: Suma de dos números</h3>
+                <p><strong>Problema:</strong> Descripción: Pedir al usuario dos números enteros y mostrar su suma..</p>
                 <pre><code class="language-javascript">
 /*
-Ejercicio 2: Suma de dos números
-
 Descripción: Pedir al usuario dos 
 números enteros y mostrar su suma.
 */
@@ -41,7 +39,6 @@ int main(){
 	int num1;
 	int num2;
 	int resul;
-	
 	//ENTRADA
 	
 	cout<<"INGRESE PRIMER NUMERO ";
@@ -63,13 +60,39 @@ int main(){
                 </code></pre>
             </article>
             <article>
-                <h3>Ejercicio 2: Invertir cadena</h3>
-                <p><strong>Problema:</strong> Escribe una función que invierta una cadena de texto.</p>
+                <h3>Ejercicio 2: Número par o impar</h3>
+                <p><strong>Problema:</strong> Descripción: Determinar si un número ingresado por el usuario es par o impar..</p>
                 <pre><code class="language-javascript">
-function invertirCadena(str) {
-    return str.split('').reverse().join('');
+
+/*
+Descripción: Determinar si un número ingresado 
+por el usuario es par o impar.
+*/
+					
+#include<iostream>
+using namespace std;
+int main(){
+	
+	//DEFINIR VARIABLES
+	
+	int num1;
+	
+	//ENTRADA
+	
+	cout<<"INGRESE NUMERO ";
+	cin>>num1;
+	
+	//PROCESO
+	
+	if(num1%2==0){
+		cout<<"ES PAR EL "<<num1;
+	}else{
+		cout<<"ES IMPAR EL "<<num1;
+	}
+	
+	
+	return 0;
 }
-console.log(invertirCadena("Hola")); // "aloH"
                 </code></pre>
             </article>
             <!-- Agrega más <article> aquí para nuevos ejercicios -->
@@ -80,4 +103,5 @@ console.log(invertirCadena("Hola")); // "aloH"
 </body>
 
 </html>
+
 
