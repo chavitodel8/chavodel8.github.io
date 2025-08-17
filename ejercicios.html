@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos - Mi Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Mi Blog de Programación</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ejercicios.html">Ejercicios Resueltos</a></li>
+            </ul>
+            <button id="theme-toggle">Cambiar Tema</button>
+        </nav>
+    </header>
+    <main>
+        <section class="exercises">
+            <h2>Ejercicios Resueltos</h2>
+            <article>
+                <h3>Ejercicio 1: Suma de arrays</h3>
+                <p><strong>Problema:</strong> Dado dos arrays de igual longitud, devuelve un array con la suma de sus elementos en cada posición.</p>
+                <pre><code class="language-javascript">
+function sumarArrays(a, b) {
+    return a.map((val, i) => val + b[i]);
+}
+console.log(sumarArrays([1, 2, 3], [4, 5, 6])); // [5, 7, 9]
+                </code></pre>
+            </article>
+            <article>
+                <h3>Ejercicio 2: Invertir cadena</h3>
+                <p><strong>Problema:</strong> Escribe una función que invierta una cadena de texto.</p>
+                <pre><code class="language-javascript">
+function invertirCadena(str) {
+    return str.split('').reverse().join('');
+}
+console.log(invertirCadena("Hola")); // "aloH"
+                </code></pre>
+            </article>
+            <!-- Agrega más <article> aquí para nuevos ejercicios -->
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
