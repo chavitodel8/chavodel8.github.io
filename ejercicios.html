@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Resueltos - Mi Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Mi Blog de Programación</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ejercicios.html">Ejercicios Resueltos</a></li>
+            </ul>
+            <button id="theme-toggle">Cambiar Tema</button>
+        </nav>
+    </header>
+
+    <div class="container full-width">
+        <main class="content">
+            <section class="exercises-list active">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Ejercicios Resueltos</h2>
+                <!-- Ejercicio 1 -->
+                <article class="exercise-item">
+                    <h3>Ejercicio 1: Suma de dos números</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Pedir al usuario dos números enteros y mostrar su suma.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 suma.cpp</span>
+                            <button class="copy-btn" onclick="copyCode('code-1')">Copiar</button>
+                        </div>
+                        <pre><code class="language-cpp">
+                    /*
+                    Descripción: Pedir al usuario dos 
+                    números enteros y mostrar su suma.
+                    */
+                    
+                    #include<iostream>
+                    using namespace std;
+                    int main(){
+                        
+                        //DEFINIR
+                        
+                        int num1;
+                        int num2;
+                        int resul;
+                        
+                        //ENTRADA
+                        
+                        cout<<"INGRESE PRIMER NUMERO ";
+                        cin>>num1;
+                        cout<<"INGRESE SEGUNDO NUMERO ";
+                        cin>>num2;
+                        
+                        //PROCESO
+                        
+                        resul=num1+num2;
+                        
+                        //SALIDA
+                        
+                        cout<<"EL RESULTADO DE LA SUMA ES: "<<resul<<endl;
+                        
+                        
+                        return 0;
+                    }
+                </code></pre>
+                    </div>
+                </article>
+
+                <!-- Ejercicio 2 -->
+                <article class="exercise-item">
+                    <h3>Ejercicio 2: Número par o impar</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Determinar si un número ingresado por el usuario es par o impar.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 par_impar.cpp</span>
+                            <button class="copy-btn" onclick="copyCode('code-2')">Copiar</button>
+                        </div>
+                        <pre><code class="language-cpp">
+                    /*
+                    Descripción: Determinar si un número ingresado 
+                    por el usuario es par o impar.
+                    
+                    */
+                    
+                    #include<iostream>
+                    using namespace std;
+                    int main(){
+                        
+                        //DEFINIR VARIABLES
+                        
+                        int num1;
+                        
+                        //ENTRADA
+                        
+                        cout<<"INGRESE NUMERO ";
+                        cin>>num1;
+                        
+                        //PROCESO
+                        
+                        if(num1%2==0){
+                            cout<<"ES PAR EL "<<num1;
+                        }else{
+                            cout<<"ES IMPAR EL "<<num1;
+                        }
+                        
+                        
+                        return 0;
+                    }
+                </code></pre>
+                    </div>
+                </article>
+
+                <!-- Ejercicio 3 -->
+                <article class="exercise-item">
+                    <h3>Ejercicio 3: Mayor de tres números</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Determinar cuál es el mayor de tres números ingresados por el usuario.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 mayor_tres.cpp</span>
+                            <button class="copy-btn" onclick="copyCode('code-3')">Copiar</button>
+                        </div>
+                        <pre><code class="language-cpp" id="code-3">/*
+Descripción: Determinar cuál es el mayor 
+de tres números ingresados por el usuario.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int num1, num2, num3;
+    int mayor;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE PRIMER NUMERO: ";
+    cin >> num1;
+    cout << "INGRESE SEGUNDO NUMERO: ";
+    cin >> num2;
+    cout << "INGRESE TERCER NUMERO: ";
+    cin >> num3;
+    
+    //PROCESO
+    mayor = num1;
+    
+    if(num2 > mayor){
+        mayor = num2;
+    }
+    
+    if(num3 > mayor){
+        mayor = num3;
+    }
+    
+    //SALIDA
+    cout << "EL NUMERO MAYOR ES: " << mayor << endl;
+    
+    return 0;
+}</code></pre>
+                    </div>
+                </article>
+
+                <!-- Ejercicio 4 -->
+                <article class="exercise-item">
+                    <h3>Ejercicio 4: Factorial de un número</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Calcular el factorial de un número entero positivo usando un bucle for.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 factorial.cpp</span>
+                            <button class="copy-btn" onclick="copyCode('code-4')">Copiar</button>
+                        </div>
+                        <pre><code class="language-cpp" id="code-4">/*
+Descripción: Calcular el factorial de un 
+número entero positivo usando bucle for.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int numero;
+    long long factorial = 1;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE UN NUMERO POSITIVO: ";
+    cin >> numero;
+    
+    //VALIDACIÓN
+    if(numero < 0){
+        cout << "ERROR: El factorial no existe para numeros negativos" << endl;
+        return 1;
+    }
+    
+    //PROCESO
+    for(int i = 1; i <= numero; i++){
+        factorial *= i;
+    }
+    
+    //SALIDA
+    cout << "EL FACTORIAL DE " << numero << " ES: " << factorial << endl;
+    
+    return 0;
+}</code></pre>
+                    </div>
+                </article>
+
+                <!-- Ejercicio 5 -->
+                <article class="exercise-item">
+                    <h3>Ejercicio 5: Tabla de multiplicar</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Mostrar la tabla de multiplicar de un número del 1 al 10.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 tabla_multiplicar.cpp</span>
+                            <button class="copy-btn" onclick="copyCode('code-5')">Copiar</button>
+                        </div>
+                        <pre><code class="language-cpp" id="code-5">/*
+Descripción: Mostrar la tabla de multiplicar 
+de un número del 1 al 10.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int numero;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE UN NUMERO PARA SU TABLA: ";
+    cin >> numero;
+    
+    //PROCESO Y SALIDA
+    cout << "\n--- TABLA DEL " << numero << " ---" << endl;
+    
+    for(int i = 1; i <= 10; i++){
+        cout << numero << " x " << i << " = " << (numero * i) << endl;
+    }
+    
+    return 0;
+}</code></pre>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
