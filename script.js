@@ -1,85 +1,71 @@
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Highlight.js for code syntax highlighting
-    hljs.highlightAll();
-    
-    // Show home by default
-    showHome();
+    // Initialize Highlight.js for code syntax highlighting if it exists
+    if (typeof hljs !== 'undefined') {
+        hljs.highlightAll();
+    }
     
     // Theme toggle functionality
     const toggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
-    toggleButton.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        toggleButton.textContent = body.classList.contains('dark') ? 'Tema Claro' : 'Tema Oscuro';
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            toggleButton.textContent = body.classList.contains('dark') ? 'Tema Claro' : 'Tema Oscuro';
+            
+            // Save theme preference
+            const isDark = body.classList.contains('dark');
+            localStorage.setItem('darkTheme', isDark);
+        });
         
-        // Save theme preference
-        const isDark = body.classList.contains('dark');
-        localStorage.setItem('darkTheme', isDark);
-    });
-    
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('darkTheme');
-    if (savedTheme === 'true') {
-        body.classList.add('dark');
-        toggleButton.textContent = 'Tema Claro';
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('darkTheme');
+        if (savedTheme === 'true') {
+            body.classList.add('dark');
+            toggleButton.textContent = 'Tema Claro';
+        }
     }
 
     // Inicializar bloques de código colapsables
     initializeCollapsibleCode();
+    
+    // Initialize exercise navigation if we're on the exercises page
+    if (window.location.pathname.includes('ejercicios.html')) {
+        initializeExerciseNavigation();
+    }
 });
 
-// Navigation functions
-function showHome() {
-    // Show home section
-    document.getElementById('home').style.display = 'block';
+// Initialize exercise navigation for exercises page
+function initializeExerciseNavigation() {
+    // Show all exercises by default
+    showAllExercises();
     
-    // Hide exercises section
-    document.getElementById('exercises-section').classList.remove('active');
-    
-    // Remove active from all sidebar links
+    // Add click event listeners to sidebar links for smooth scrolling
     document.querySelectorAll('.exercise-list a').forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Hide all individual exercises
-    document.querySelectorAll('.exercise').forEach(exercise => {
-        exercise.classList.remove('active');
-    });
-}
-
-function showExercises() {
-    // Hide home section
-    document.getElementById('home').style.display = 'none';
-    
-    // Show exercises section
-    document.getElementById('exercises-section').classList.add('active');
-    
-    // Hide all individual exercises
-    document.querySelectorAll('.exercise').forEach(exercise => {
-        exercise.classList.remove('active');
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const exerciseNumber = link.getAttribute('data-exercise');
+            scrollToExercise(exerciseNumber);
+        });
     });
 }
 
-function showExercise(exerciseNumber) {
-    // Hide home section
-    document.getElementById('home').style.display = 'none';
-    
-    // Show exercises section
-    document.getElementById('exercises-section').classList.add('active');
-    
-    // Hide all exercises first
-    document.querySelectorAll('.exercise').forEach(exercise => {
-        exercise.classList.remove('active');
+function showAllExercises() {
+    // Show all exercises
+    document.querySelectorAll('.exercise-item').forEach(exercise => {
+        exercise.style.display = 'block';
     });
     
-    // Show selected exercise
-    const selectedExercise = document.getElementById(`exercise-${exerciseNumber}`);
-    if (selectedExercise) {
-        selectedExercise.classList.add('active');
+    // Highlight code syntax for all exercises
+    if (typeof hljs !== 'undefined') {
+        setTimeout(() => {
+            hljs.highlightAll();
+        }, 100);
     }
-    
+}
+
+function scrollToExercise(exerciseNumber) {
     // Update sidebar active state
     document.querySelectorAll('.exercise-list a').forEach(link => {
         link.classList.remove('active');
@@ -90,13 +76,14 @@ function showExercise(exerciseNumber) {
         activeLink.classList.add('active');
     }
     
-    // Re-highlight code syntax after showing
-    setTimeout(() => {
-        hljs.highlightAll();
-    }, 100);
-    
-    // Scroll to top of content
-    document.querySelector('.content').scrollTop = 0;
+    // Scroll to the selected exercise
+    const selectedExercise = document.getElementById(`exercise-${exerciseNumber}`);
+    if (selectedExercise) {
+        selectedExercise.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
 }
 
 // Copy code to clipboard function
@@ -177,22 +164,6 @@ function initializeCollapsibleCode() {
         });
     });
 }
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey || e.metaKey) {
-        switch (e.key) {
-            case 'h':
-                e.preventDefault();
-                showHome();
-                break;
-            case 'e':
-                e.preventDefault();
-                showExercises();
-                break;
-        }
-    }
-});
 
 // Add smooth scrolling behavior
 document.documentElement.style.scrollBehavior = 'smooth';
