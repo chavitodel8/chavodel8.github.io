@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios Resueltos - Mi Blog</title>
+    <title>Ejercicios Resueltos - Mi Blog de Programación</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
@@ -19,12 +19,28 @@
         </nav>
     </header>
 
-    <div class="container full-width">
+    <div class="container">
+        <aside class="sidebar">
+            <h3>📚 Ejercicios</h3>
+            <ul class="exercise-list">
+                <li><a href="#" onclick="showExercise(1)" data-exercise="1">1. Suma de números</a></li>
+                <li><a href="#" onclick="showExercise(2)" data-exercise="2">2. Par o impar</a></li>
+                <li><a href="#" onclick="showExercise(3)" data-exercise="3">3. Mayor de tres números</a></li>
+                <li><a href="#" onclick="showExercise(4)" data-exercise="4">4. Factorial</a></li>
+                <li><a href="#" onclick="showExercise(5)" data-exercise="5">5. Tabla de multiplicar</a></li>
+                <li><a href="#" onclick="showExercise(6)" data-exercise="6">6. Números primos</a></li>
+                <li><a href="#" onclick="showExercise(7)" data-exercise="7">7. Serie Fibonacci</a></li>
+                <li><a href="#" onclick="showExercise(8)" data-exercise="8">8. Palíndromo</a></li>
+            </ul>
+        </aside>
+
         <main class="content">
-            <section class="exercises-list active">
+            <!-- Exercises Section -->
+            <section class="exercises-list" id="exercises-section">
                 <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Ejercicios Resueltos</h2>
+                
                 <!-- Ejercicio 1 -->
-                <article class="exercise-item">
+                <article class="exercise-item" id="exercise-1">
                     <h3>Ejercicio 1: Suma de dos números</h3>
                     <div class="problem">
                         <strong>Problema:</strong> Pedir al usuario dos números enteros y mostrar su suma.
@@ -33,46 +49,40 @@
                         <div class="code-header">
                             <span>💻 suma.cpp</span>
                         </div>
-                        <pre><code class="language-cpp">
-                    /*
-                    Descripción: Pedir al usuario dos 
-                    números enteros y mostrar su suma.
-                    */
-                    
-                    #include<iostream>
-                    using namespace std;
-                    int main(){
-                        
-                        //DEFINIR
-                        
-                        int num1;
-                        int num2;
-                        int resul;
-                        
-                        //ENTRADA
-                        
-                        cout<<"INGRESE PRIMER NUMERO ";
-                        cin>>num1;
-                        cout<<"INGRESE SEGUNDO NUMERO ";
-                        cin>>num2;
-                        
-                        //PROCESO
-                        
-                        resul=num1+num2;
-                        
-                        //SALIDA
-                        
-                        cout<<"EL RESULTADO DE LA SUMA ES: "<<resul<<endl;
-                        
-                        
-                        return 0;
-                    }
-                </code></pre>
+                        <pre><code class="language-cpp" id="code-1">/*
+Descripción: Pedir al usuario dos 
+números enteros y mostrar su suma.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int num1;
+    int num2;
+    int resul;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE PRIMER NUMERO: ";
+    cin >> num1;
+    cout << "INGRESE SEGUNDO NUMERO: ";
+    cin >> num2;
+    
+    //PROCESO
+    resul = num1 + num2;
+    
+    //SALIDA
+    cout << "EL RESULTADO DE LA SUMA ES: " << resul << endl;
+    
+    return 0;
+}</code></pre>
                     </div>
                 </article>
 
                 <!-- Ejercicio 2 -->
-                <article class="exercise-item">
+                <article class="exercise-item" id="exercise-2">
                     <h3>Ejercicio 2: Número par o impar</h3>
                     <div class="problem">
                         <strong>Problema:</strong> Determinar si un número ingresado por el usuario es par o impar.
@@ -81,43 +91,37 @@
                         <div class="code-header">
                             <span>💻 par_impar.cpp</span>
                         </div>
-                        <pre><code class="language-cpp">
-                    /*
-                    Descripción: Determinar si un número ingresado 
-                    por el usuario es par o impar.
-                    
-                    */
-                    
-                    #include<iostream>
-                    using namespace std;
-                    int main(){
-                        
-                        //DEFINIR VARIABLES
-                        
-                        int num1;
-                        
-                        //ENTRADA
-                        
-                        cout<<"INGRESE NUMERO ";
-                        cin>>num1;
-                        
-                        //PROCESO
-                        
-                        if(num1%2==0){
-                            cout<<"ES PAR EL "<<num1;
-                        }else{
-                            cout<<"ES IMPAR EL "<<num1;
-                        }
-                        
-                        
-                        return 0;
-                    }
-                </code></pre>
+                        <pre><code class="language-cpp" id="code-2">/*
+Descripción: Determinar si un número ingresado 
+por el usuario es par o impar.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int num1;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE UN NUMERO: ";
+    cin >> num1;
+    
+    //PROCESO Y SALIDA
+    if(num1 % 2 == 0){
+        cout << "EL NUMERO " << num1 << " ES PAR" << endl;
+    } else {
+        cout << "EL NUMERO " << num1 << " ES IMPAR" << endl;
+    }
+    
+    return 0;
+}</code></pre>
                     </div>
                 </article>
 
                 <!-- Ejercicio 3 -->
-                <article class="exercise-item">
+                <article class="exercise-item" id="exercise-3">
                     <h3>Ejercicio 3: Mayor de tres números</h3>
                     <div class="problem">
                         <strong>Problema:</strong> Determinar cuál es el mayor de tres números ingresados por el usuario.
@@ -168,7 +172,7 @@ int main(){
                 </article>
 
                 <!-- Ejercicio 4 -->
-                <article class="exercise-item">
+                <article class="exercise-item" id="exercise-4">
                     <h3>Ejercicio 4: Factorial de un número</h3>
                     <div class="problem">
                         <strong>Problema:</strong> Calcular el factorial de un número entero positivo usando un bucle for.
@@ -215,7 +219,7 @@ int main(){
                 </article>
 
                 <!-- Ejercicio 5 -->
-                <article class="exercise-item">
+                <article class="exercise-item" id="exercise-5">
                     <h3>Ejercicio 5: Tabla de multiplicar</h3>
                     <div class="problem">
                         <strong>Problema:</strong> Mostrar la tabla de multiplicar de un número del 1 al 10.
@@ -252,6 +256,164 @@ int main(){
 }</code></pre>
                     </div>
                 </article>
+
+                <!-- Ejercicio 6 -->
+                <article class="exercise-item" id="exercise-6">
+                    <h3>Ejercicio 6: Números primos</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Determinar si un número ingresado por el usuario es primo o no.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 numeros_primos.cpp</span>
+                        </div>
+                        <pre><code class="language-cpp" id="code-6">/*
+Descripción: Determinar si un número 
+ingresado por el usuario es primo.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int numero;
+    bool esPrimo = true;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE UN NUMERO: ";
+    cin >> numero;
+    
+    //VALIDACIÓN
+    if(numero <= 1){
+        esPrimo = false;
+    } else {
+        //PROCESO - Verificar divisibilidad
+        for(int i = 2; i * i <= numero; i++){
+            if(numero % i == 0){
+                esPrimo = false;
+                break;
+            }
+        }
+    }
+    
+    //SALIDA
+    if(esPrimo){
+        cout << numero << " ES UN NUMERO PRIMO" << endl;
+    } else {
+        cout << numero << " NO ES UN NUMERO PRIMO" << endl;
+    }
+    
+    return 0;
+}</code></pre>
+                    </div>
+                </article>
+
+                <!-- Ejercicio 7 -->
+                <article class="exercise-item" id="exercise-7">
+                    <h3>Ejercicio 7: Serie Fibonacci</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Generar los primeros N términos de la serie Fibonacci.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 fibonacci.cpp</span>
+                        </div>
+                        <pre><code class="language-cpp" id="code-7">/*
+Descripción: Generar los primeros N 
+términos de la serie Fibonacci.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    int n, primero = 0, segundo = 1, siguiente;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE CUANTOS TERMINOS DESEA: ";
+    cin >> n;
+    
+    //VALIDACIÓN
+    if(n <= 0){
+        cout << "ERROR: Ingrese un numero positivo" << endl;
+        return 1;
+    }
+    
+    //SALIDA
+    cout << "\n--- SERIE FIBONACCI ---" << endl;
+    
+    for(int i = 1; i <= n; i++){
+        if(i == 1){
+            cout << primero << " ";
+        } else if(i == 2){
+            cout << segundo << " ";
+        } else {
+            siguiente = primero + segundo;
+            cout << siguiente << " ";
+            primero = segundo;
+            segundo = siguiente;
+        }
+    }
+    
+    cout << endl;
+    return 0;
+}</code></pre>
+                    </div>
+                </article>
+
+                <!-- Ejercicio 8 -->
+                <article class="exercise-item" id="exercise-8">
+                    <h3>Ejercicio 8: Palíndromo</h3>
+                    <div class="problem">
+                        <strong>Problema:</strong> Determinar si una palabra ingresada por el usuario es un palíndromo.
+                    </div>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>💻 palindromo.cpp</span>
+                        </div>
+                        <pre><code class="language-cpp" id="code-8">/*
+Descripción: Determinar si una palabra 
+ingresada es un palíndromo.
+*/
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main(){
+    
+    //DEFINIR VARIABLES
+    string palabra;
+    bool esPalindromo = true;
+    
+    //ENTRADA DE DATOS
+    cout << "INGRESE UNA PALABRA: ";
+    cin >> palabra;
+    
+    //PROCESO - Verificar palíndromo
+    int longitud = palabra.length();
+    for(int i = 0; i < longitud / 2; i++){
+        if(palabra[i] != palabra[longitud - 1 - i]){
+            esPalindromo = false;
+            break;
+        }
+    }
+    
+    //SALIDA
+    if(esPalindromo){
+        cout << "\"" << palabra << "\" ES UN PALINDROMO" << endl;
+    } else {
+        cout << "\"" << palabra << "\" NO ES UN PALINDROMO" << endl;
+    }
+    
+    return 0;
+}</code></pre>
+                    </div>
+                </article>
             </section>
         </main>
     </div>
@@ -259,5 +421,4 @@ int main(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
